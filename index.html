@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* General Styles */
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+}
+
+/* Header Styles */
+header {
+    background-color: #171515;
+    color: #fff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Hero Section Styles */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-photo {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: scaleIn 3s ease-in-out;
+}
+
+/* Typewriter Animation */
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #fff; /* Cursor */
+    animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+    margin: 0; /* Remove margin to align with other elements */
+}
+
+/* Keyframes for Typewriter Effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+}
+
+/* Additional Styles */
+h1, p {
+    margin: 10px 0;
+    color: #fff; /* Ensure text is visible */
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+
+/* Section Styles */
+section {
+    padding: 80px 20px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    border-radius: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Contact Section Styles */
+.contact-info {
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.social-link.linkedin {
+    background-color: #17191a;
+}
+
+.social-link.linkedin:hover {
+    background-color: #ae7306;
+}
+
+.social-link.facebook {
+    background-color: #c97a0b;
+}
+
+.social-link.facebook:hover {
+    background-color: #101112;
+}
+
+/* Certifications Section Styles */
+.certificates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.cert-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(25% - 20px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.cert-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cert-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+
+
+
+
+</style>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+   <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <img src="556414.jpg" alt="Your Photo" class="hero-photo">
+        <h1 class="typewriter">Osama Ahmad</h1>
+        <p class="typewriter">Bachelor in Computer Science <br> (UET Peshawar)</p>
+        <p class="typewriter">Junior CyberSecurity Analyst</p>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p style="color: black;">Get in touch, you can reach me through the following:</p>
+        <div class="contact-info" >
+            <p style="color: black;"><strong>Mobile:</strong> +923459527616</p>
+            <p style="color: black;"><strong>Email:</strong> <a href="mailto:osamaahmad9162@gmail.com" style="color: #101112;">osamaahmad9162@gmail.com</a></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/osama-ahmad-50131a237/?profileId=ACoAADr1K1EBcGA_IvCVxwSbd_WgPkseAao21FI" target="_blank" class="social-link linkedin">LinkedIn</a>
+                <a href="https://www.facebook.com/profile.php?id=100008219202070" target="_blank" class="social-link facebook">Facebook</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certificates">
+            <div class="cert-card">
+                <img src="ciscocyber.png" alt="Certification 1" class="cert-image" onclick="openModal('ciscocyber.png')">
+                <h3>CISCO Intro to CyberSecurity</h3>
+                <p></p>
+            </div>
+            <div class="cert-card">
+                <img src="isc2.png" alt="Certification 2" class="cert-image" onclick="openModal('isc2.png')">
+                <h3>Coursera ISC2 Network Security</h3>
+                <p></p>
+            </div>
+            <div class="cert-card">
+                <img src="linux cirt.jpeg" alt="Certification 3" class="cert-image" onclick="openModal('linux cirt.jpeg')">
+                <h3>Linux Command Line by Udemy</h3>
+                <p></p>
+            </div>
+            <div class="cert-card">
+                <img src="cert4.jpg" alt="Certification 4" class="cert-image" onclick="openModal('cert4.jpg')">
+                <h3>CISCO Networking Fundamental</h3>
+                <p>Details about Certification 4</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Enlarged Image -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <p style="color: black;">I am currently a computer science student with a strong interest in cybersecurity and networking. Throughout my academic journey, I have been actively engaging in various cybersecurity courses to deepen my knowledge and skills in the field. My coursework has covered a range of topics including network security, ethical hacking, and threat management.
+            <br>
+            In addition to my studies, I am gaining practical experience through internships and hands-on projects. These experiences are helping me apply theoretical concepts in real-world scenarios and stay updated with the latest industry trends. I am enthusiastic about exploring opportunities in cybersecurity and networking to contribute to safeguarding digital environments.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Osama Ahmad. All rights reserved.</p>
+    </footer>
+    <script>
+        // JavaScript for Modal Functionality
+        function openModal(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('imageModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+</body>
+</html>
